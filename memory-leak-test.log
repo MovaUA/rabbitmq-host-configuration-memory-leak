@@ -1,0 +1,86 @@
+dbug: Microsoft.Extensions.Hosting.Internal.Host[1]
+      Hosting starting
+dbug: MassTransit.Transports.BusDepot[0]
+      Starting bus instances: IBus
+dbug: MassTransit[0]
+      Starting bus: rabbitmq://localhost/
+dbug: MassTransit[0]
+      Connect: guest@localhost:5672/
+dbug: MassTransit[0]
+      Connected: guest@localhost:5672/ (address: amqp://localhost:5672, local: 64254)
+dbug: MassTransit[0]
+      Endpoint Ready: rabbitmq://localhost/pro_MemoryLeakTest_bus_jjnyyyneynsp7uzybdpiiekgrq?temporary=true
+info: MassTransit[0]
+      Bus started: rabbitmq://localhost/
+connect
+dbug: MassTransit[0]
+      Connect receive endpoint: rabbitmq://localhost/sample-message
+info: MemoryLeakTest.ConsumerController[0]
+      Connecting SampleConsumer...
+dbug: MassTransit[0]
+      Declare queue: name: sample-message, durable, consumer-count: 0 message-count: 0
+dbug: MassTransit[0]
+      Declare exchange: name: sample-message, type: fanout, durable
+dbug: MassTransit[0]
+      Declare exchange: name: MemoryLeakTest:SampleMessage, type: fanout, durable
+dbug: MassTransit[0]
+      Bind queue: source: sample-message, destination: sample-message
+dbug: MassTransit[0]
+      Bind exchange: source: MemoryLeakTest:SampleMessage, destination: sample-message
+dbug: MassTransit.ReceiveTransport[0]
+      Consumer Ok: rabbitmq://localhost/sample-message - amq.ctag-ZnOf9pq525pOPub7bbEmlQ
+dbug: MassTransit[0]
+      Endpoint Ready: rabbitmq://localhost/sample-message
+info: MemoryLeakTest.ConsumerController[0]
+      SampleConsumer is connected.
+info: MemoryLeakTest.ConsumerController[0]
+      Waiting for the cancellation is requested...
+disconnect
+info: MemoryLeakTest.ConsumerController[0]
+      The cancellation is requested.
+info: MemoryLeakTest.ConsumerController[0]
+      Disconnecting SampleConsumer...
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /Users/mova/proj/wsp/Services/MemoryLeakTest
+dbug: Microsoft.Extensions.Hosting.Internal.Host[2]
+      Hosting started
+dbug: MassTransit[0]
+      Endpoint Stopping: rabbitmq://localhost/sample-message
+dbug: MassTransit[0]
+      Stopping receive transport: rabbitmq://localhost/sample-message
+dbug: MassTransit[0]
+      Consumer Stopping: rabbitmq://localhost/sample-message (Stop Receive Transport)
+dbug: MassTransit.ReceiveTransport[0]
+      Consumer Cancel Ok: rabbitmq://localhost/sample-message - amq.ctag-ZnOf9pq525pOPub7bbEmlQ
+dbug: MassTransit[0]
+      Endpoint Completed: rabbitmq://localhost/sample-message
+dbug: MassTransit.Messages[0]
+      Consumer Completed: rabbitmq://localhost/sample-message: 0 received, 0 concurrent, amq.ctag-ZnOf9pq525pOPub7bbEmlQ
+info: MemoryLeakTest.ConsumerController[0]
+      SampleConsumer is disconnected.
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+dbug: Microsoft.Extensions.Hosting.Internal.Host[3]
+      Hosting stopping
+dbug: MassTransit.Transports.BusDepot[0]
+      Stopping bus instances: IBus
+dbug: MassTransit[0]
+      Stopping bus: rabbitmq://localhost/
+dbug: MassTransit[0]
+      Endpoint Stopping: rabbitmq://localhost/pro_MemoryLeakTest_bus_jjnyyyneynsp7uzybdpiiekgrq?temporary=true
+dbug: MassTransit[0]
+      Stopping receive transport: rabbitmq://localhost/pro_MemoryLeakTest_bus_jjnyyyneynsp7uzybdpiiekgrq?temporary=true
+dbug: MassTransit[0]
+      Endpoint Completed: rabbitmq://localhost/pro_MemoryLeakTest_bus_jjnyyyneynsp7uzybdpiiekgrq?temporary=true
+dbug: MassTransit[0]
+      Disconnect: guest@localhost:5672/
+dbug: MassTransit[0]
+      Disconnected: guest@localhost:5672/
+info: MassTransit[0]
+      Bus stopped: rabbitmq://localhost/
+dbug: Microsoft.Extensions.Hosting.Internal.Host[4]
+      Hosting stopped
